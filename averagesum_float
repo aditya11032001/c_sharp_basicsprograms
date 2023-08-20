@@ -1,0 +1,25 @@
+using System;
+
+namespace average_sum_floatingvalue
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            float[] values = { 5.4f, 3.2f, 7.8f, 1.0f, 9.5f };
+
+            float sum = 0.0f;
+
+            for(int i=0;i<values.Length;i++)
+            {
+                sum += values[i];
+            }
+
+            float average = sum / values.Length;
+
+            Console.WriteLine($"The average of the values is: {average}");
+            Console.ReadKey();
+        }
+    }
+}
