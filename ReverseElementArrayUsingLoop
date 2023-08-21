@@ -1,0 +1,49 @@
+using System;
+
+
+namespace reverse_elementarray_usingLOOP
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numbers = { 1, 2, 3, 4, 5 };
+
+            Console.WriteLine("Original array:");
+            PrintArray(numbers);
+
+            ReverseArray(numbers);
+
+            Console.WriteLine("\nReversed array:");
+            PrintArray(numbers);
+            Console.ReadKey();
+        }
+
+        static void ReverseArray(int[] array)
+        {
+            int left = 0;
+            int right = array.Length - 1;
+
+            while (left < right)
+            {
+                // Swap elements at left and right indices
+                int temp = array[left];
+                array[left] = array[right];
+                array[right] = temp;
+
+                left++;
+                right--;
+            }
+        }
+
+        static void PrintArray(int[] array)
+        {
+            foreach (int num in array)
+            {
+                Console.Write(num + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+
+}
