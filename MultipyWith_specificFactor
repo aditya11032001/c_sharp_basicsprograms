@@ -1,0 +1,43 @@
+using System;
+
+
+namespace mutiply_arrayelement_speciFACTOR
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Define the array and factor
+            int[] array = { 2, 4, 6, 8, 10 };
+            int factor = 3;
+
+            Console.WriteLine("Original array:");
+            PrintArray(array);
+
+            // Multiply each element by the factor
+            MultiplyArrayByFactor(array, factor);
+
+            Console.WriteLine("\nArray after multiplication by " +factor +":");
+            PrintArray(array);
+            Console.ReadKey();
+        }
+
+        static void MultiplyArrayByFactor(int[] arr, int factor)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] *= factor;
+            }
+        }
+
+        static void PrintArray(int[] arr)
+        {
+            foreach (int num in arr)
+            {
+                Console.Write(num + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+
+}
