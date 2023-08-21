@@ -1,0 +1,51 @@
+using System;
+
+
+namespace remove_duplicate_files
+{
+    using System.Collections.Generic;
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] array = { 1, 2, 3, 4, 2, 5, 6, 1, 7, 8, 3, 9 };
+
+            Console.WriteLine("Original Array:");
+            PrintArray(array);
+
+            int[] uniqueArray = RemoveDuplicates(array);
+
+            Console.WriteLine("Array with Duplicates Removed:");
+            PrintArray(uniqueArray);
+            Console.ReadKey();
+        }
+
+        static int[] RemoveDuplicates(int[] inputArray)
+        {
+            HashSet<int> uniqueSet = new HashSet<int>();
+            List<int> result = new List<int>();
+
+            for (int i = 0; i < inputArray.Length; i++)
+            {
+                if (!uniqueSet.Contains(inputArray[i]))
+                {
+                    uniqueSet.Add(inputArray[i]);
+                    result.Add(inputArray[i]);
+                }
+            }
+
+            return result.ToArray();
+        }
+
+        static void PrintArray(int[] arr)
+        {
+            foreach (int num in arr)
+            {
+                Console.Write(num + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+
+}
