@@ -1,0 +1,57 @@
+using System;
+
+
+namespace commonElement_twoArray
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] array1 = { 1, 2, 3, 4, 5 };
+            int[] array2 = { 3, 4, 5, 6, 7 };
+            void PrintArray(int[] array)
+            {
+                foreach(int num in array)
+                {
+                    Console.Write(num + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.Write("array1 :");
+            PrintArray(array1);
+            Console.Write("array2 :");
+            PrintArray(array2);
+
+            Console.WriteLine("Common elements between the arrays:");
+           
+
+            foreach (int num in FindCommonElements(array1, array2))
+            {
+                Console.Write(num+"  ");
+            }
+            Console.ReadKey();
+        }
+
+        static int[] FindCommonElements(int[] arr1, int[] arr2)
+        {
+            int[] commonElements = new int[Math.Min(arr1.Length, arr2.Length)];
+            int commonCount = 0;
+
+            foreach (int num1 in arr1)
+            {
+                foreach (int num2 in arr2)
+                {
+                    if (num1 == num2)
+                    {
+                        commonElements[commonCount++] = num1;
+                        break; // No need to continue checking for the same number in arr2
+                    }
+                }
+            }
+
+            Array.Resize(ref commonElements, commonCount);
+            return commonElements;
+        }
+    }
+
+}
