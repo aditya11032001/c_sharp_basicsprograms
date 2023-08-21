@@ -1,0 +1,40 @@
+using System;
+
+namespace SecondSmallestElement
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = { 12, 45, 7, 23, 56, 19, 9, 33 };
+
+            // Sorting the array using a simple sorting technique (e.g., Bubble Sort)
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = 0; j < arr.Length - i - 1; j++)
+                {
+                    if (arr[j] > arr[j + 1])
+                    {
+                        // Swap arr[j] and arr[j + 1]
+                        int temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+
+            // The second smallest element is now at index 1 (index 0 holds the smallest element)
+            int secondSmallest = arr[1];
+
+            Console.WriteLine("Array elements after sorting:");
+            foreach (int num in arr)
+            {
+                Console.Write(num + " ");
+            }
+
+            Console.WriteLine("\nSecond smallest element: " + secondSmallest);
+            Console.ReadKey();
+        }
+    }
+
+}
